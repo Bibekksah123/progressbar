@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    }
+    .container{
+      position: relative;
+      height: 160px;
+      width: 160px;
+      border: 1px solid;
+      border-radius: 50%;
+    
+    }
+    .inner{
+      height: 160px;
+      width: 160px;
+     
+      padding: 20px;
+    }
+    .outer{
+      height: 120px;
+      width: 120px;
+      border: 1px solid;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+    circle{
+      fill: none;
+      stroke: url(#GradientColor);
+      stroke-width: 20px;
+      stroke-dasharray:472;
+      stroke-dashoffset:472;
+      animation: ani 2s  linear forwards ;
+    }
+    svg{
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    @keyframes ani{
+      100%{
+        stroke-dashoffset:165;
+      }
+     
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="inner">
+      <div class="outer">
+<div class="number">
+  60%
+</div>
+      </div>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+      <defs>
+         <linearGradient id="GradientColor">
+            <stop offset="0%" stop-color="#e91e63" />
+            <stop offset="100%" stop-color="#673ab7" />
+         </linearGradient>
+      </defs>
+      <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+</svg>
+  </div>
+  <script>
+    let number=document.querySelector('.number');
+    let count=0;
+    setInterval(()=>{
+      if(count==65){
+        clearTimeout();
+      }else{
+      count +=1;
+      number.innerHTML= count +"%";
+      }
+    },20)
+  </script>
+</body>
+</html>
